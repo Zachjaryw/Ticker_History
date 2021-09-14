@@ -8,9 +8,9 @@ end = dt.date.today().strftime('%Y-%m-%d') #Set end date for collection
 
 st.title("Tickers Historical Data")
 start = st.text_input("Input start date here: (Format YYYY-MM-DD)", '2021-01-01') #Allow user to chose own start date
-#start = datetime.date(int(start[6:]),int(start[3:5]),int(start[0:2]))
+
 st.write('For list of possible tickers, visit: https://tinyurl.com/NYSETickers')
-tickers = st.text_input("Input tickers here:",'AAPL') #Allow user to chose ticker symbol
+tickers = st.text_input("Input tickers here: (Use comma to seperate tickers)",'AAPL') #Allow user to chose ticker symbol
 
 #Collect Data
 yfinance.pdr_override()
