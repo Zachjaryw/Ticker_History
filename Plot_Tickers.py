@@ -9,7 +9,7 @@ end = dt.date.today().strftime('%Y-%m-%d') #Set end date for collection
 st.title("Tickers Historical Data")
 start = st.text_input("Input start date here:", '2021-01-01') #Allow user to chose own start date
 #start = DateTime.ParseExact(start, '%Y-%m-%d')
-st.write('For list of possible tickers, visit: https://eoddata.com/symbols.aspx?AspxAutoDetectCookieSupport=1')
+st.write('For list of possible tickers, visit: https://tinyurl.com/NYSETickers')
 tickers = st.text_input("Input tickers here:",'AAPL') #Allow user to chose ticker symbol
 
 #Collect Data
