@@ -21,7 +21,7 @@ data = data.iloc[::-1]
 #Display Data
 st.header('Adjusted Closing Values per Day')
 if type(tickers) == type(''):
-  name = yfinance.Ticker(ticker)
+  name = yfinance.Ticker(tickers)
   company_name = name.info['longName']
   st.write(company_name)
 st.write(data)
