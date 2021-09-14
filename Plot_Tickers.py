@@ -11,7 +11,7 @@ start = st.text_input("Input start date here: (Format YYYY-MM-DD)", '2021-01-01'
 
 st.write('For list of possible tickers, visit: https://tinyurl.com/NYSETickers')
 tickers = st.text_input("Input tickers here: (Use comma to seperate tickers)",'AAPL') #Allow user to chose ticker symbol
-st.write(type(tickers))
+
 #Collect Data
 yfinance.pdr_override()
 data = pd.DataFrame()
