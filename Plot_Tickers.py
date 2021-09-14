@@ -7,8 +7,8 @@ import streamlit as st
 end = dt.date.today().strftime('%Y-%m-%d') #Set end date for collection
 
 st.title("Tickers Historical Data")
-start = st.text_input("Input start date here:", '2021-01-01') #Allow user to chose own start date
-#start = DateTime.ParseExact(start, '%Y-%m-%d')
+start = st.text_input("Input start date here:", '01-01-2021') #Allow user to chose own start date
+start = datetime.date(start[6:],start[3:5],start[0:2])
 st.write('For list of possible tickers, visit: https://tinyurl.com/NYSETickers')
 tickers = st.text_input("Input tickers here:",'AAPL') #Allow user to chose ticker symbol
 
