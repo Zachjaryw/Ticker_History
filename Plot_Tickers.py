@@ -25,6 +25,7 @@ if type(tickers) == type(''):
   company_name = name.info['longName']
   st.write(company_name)
 elif type(tickers) == type([]):
+  pass
   #company_names = ''
   #for name in tickers:
     #name = yfinance.Ticker(tickers[name])
