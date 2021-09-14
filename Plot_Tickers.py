@@ -24,5 +24,7 @@ if type(tickers) == type(''):
   name = yfinance.Ticker(tickers)
   company_name = name.info['longName']
   st.write(company_name)
+else:
+ pass
 st.write(data)
 st.line_chart(data)
