@@ -1,7 +1,1 @@
-pandas
-numpy
-datetime
-pandas_datareader
-matplotlib.pyplot
-streamlit
-yfinance
+pandas, numpy, datetime, pandas_datareader, matplotlib.pyplot, streamlit, yfinance
