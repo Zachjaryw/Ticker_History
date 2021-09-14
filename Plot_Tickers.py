@@ -21,5 +21,3 @@ data = data.iloc[::-1]
 st.header('Adjusted Closing Values per Day')
 st.write(data)
 st.line_chart(data)
-if type(tickers) == type(''):
-  st.write(yfinance.Tickers(tickers).info)
