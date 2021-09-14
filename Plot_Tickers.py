@@ -11,7 +11,7 @@ start = st.text_input("Input start date here: (Format YYYY-MM-DD)", '2021-01-01'
 
 st.write('For list of possible tickers, visit: https://tinyurl.com/NYSETickers')
 tickers = st.text_input("Input tickers here: (Use comma to seperate tickers)",'AAPL') #Allow user to chose ticker symbol
-
+st.write(type(tickers))
 #Collect Data
 yfinance.pdr_override()
 data = pd.DataFrame()
@@ -25,10 +25,10 @@ if type(tickers) == type(''):
   company_name = name.info['longName']
   st.write(company_name)
 elif type(tickers) == type([]):
-  company_names = ''
-  for name in tickers:
-    name = yfinance.Ticker(tickers[name])
-    company_names = company_names + f'{name},'
-    st.write(company_names)
+  #company_names = ''
+  #for name in tickers:
+    #name = yfinance.Ticker(tickers[name])
+    #company_names = company_names + f'{name},'
+    #st.write(company_names)
 st.write(data)
 st.line_chart(data)
