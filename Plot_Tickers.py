@@ -8,7 +8,7 @@ end = dt.date.today().strftime('%Y-%m-%d') #Set end date for collection
 
 st.title("Tickers Historical Data")
 start = st.text_input("Input start date here:", '2021-01-01') #Allow user to chose own start date
-start = DateTime.ParseExact(start, '%Y-%m-%d')
+#start = DateTime.ParseExact(start, '%Y-%m-%d')
 
 tickers = st.text_input("Input tickers here:",'AAPL') #Allow user to chose ticker symbol
 
