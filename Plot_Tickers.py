@@ -24,5 +24,11 @@ if type(tickers) == type(''):
   name = yfinance.Ticker(tickers)
   company_name = name.info['longName']
   st.write(company_name)
+elif type(tickers) == type([]):
+  company_names = ''
+  for name in tickers:
+    name = yfinance.Ticker(tickers[name])
+    company_names = company_names + f'{name},'
+    st.write(company_names)
 st.write(data)
 st.line_chart(data)
