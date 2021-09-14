@@ -20,5 +20,9 @@ data = data.iloc[::-1]
 
 #Display Data
 st.header('Adjusted Closing Values per Day')
+if type(tickers) == type(''):
+  name = yfinance.Ticker(ticker)
+  company_name = name.info['longName']
+  st.write(company_name)
 st.write(data)
 st.line_chart(data)
