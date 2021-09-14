@@ -4,10 +4,10 @@ import yfinance
 from pandas_datareader import data as pdr
 import streamlit as st
 
-end = dt.date.today().strftime('%Y-%m-%d') #Set end date for collection
+end = dt.date.today().strftime('%d-%m-%Y') #Set end date for collection
 
 st.title("Tickers Historical Data")
-start = st.text_input("Input start date here:", '2020-01-01') #Allow user to chose own start date
+start = st.text_input("Input start date here:", '01-01-2021') #Allow user to chose own start date
 
 tickers = st.text_input("Input tickers here:",'AAPL') #Allow user to chose ticker symbol
 
