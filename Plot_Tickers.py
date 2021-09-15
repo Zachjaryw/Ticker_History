@@ -65,12 +65,15 @@ elif data.shape[1] > 2:
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
 if ct == True:
+  seperate = st.checkbox('Seperate Graphs?')
   change = change.set_index('Date')
   change.columns = data.columns
   st.write(change)
-  st.line_chart(change)
-  #for i in range(change.shape[1]):
-    #st.line_chart(change.iloc[:,i])
+  if seperate == True:
+    for i in range(change.shape[1]):
+      st.line_chart(change.iloc[:,i])
+  elif seperate == False:
+    st.line_chart(change)
 elif ct == False:
   st.write(change)
   st.line_chart(change)
