@@ -25,10 +25,16 @@ elif breakdown == 'Week':
   data = data.iloc[::5]
 elif breakdown == 'Month':
   data = data.iloc[::22]
-
 data = data.iloc[::-1]
 
 #Display Data
-st.header('Adjusted Closing Values per Day')
+st.header(f'Adjusted Closing Values per {breakdown}')
 st.write(data)
 st.line_chart(data)
+
+accel_data = pd.DataFrame()
+
+
+#Display Accelaration Graph
+st.header(f'Acceleration Graph of Closing Values per {breakdown}')
+st.line_chart(accel_data,min = -100,max = 100)
