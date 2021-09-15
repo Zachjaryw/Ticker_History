@@ -61,7 +61,8 @@ elif data.shape[1] > 2:
       for list1_i, list2_i in zip_object:
           difference.append((list1_i-list2_i)/list1_i*100)
       dif = pd.DataFrame({'Difference':difference})
-      change = pd.concat([change,dif],axis = 1)
+      change = pd.concat([change,dif],axis = 1)  
+  change.columns = data.columns
 
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
