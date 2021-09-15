@@ -48,7 +48,7 @@ if data.shape[1] == 2:
   change = change.set_index('Date')
     
 elif data.shape[1] > 2:
-  ct = False
+  ct = True
   data = data.set_index('Date')
   cols = data.columns
   for col in cols:
