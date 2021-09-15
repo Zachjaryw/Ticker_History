@@ -32,10 +32,10 @@ st.header(f'Adjusted Closing Values per {breakdown}')
 st.write(data)
 st.line_chart(data)
 
+change = pd.DataFrame({'Date':data.index})
 data = data.reset_index()
 if data.shape[1] == 2:
   ct = False
-  change = pd.DataFrame({'Date':data.index})
   list1 = data['Adj Close'].tolist()
   list2 = data['Adj Close'].tolist()
   list2.remove(list2[0]);list2.append(list2[-1])
@@ -51,7 +51,6 @@ elif data.shape[1] > 2:
   ct = True
   data = data.set_index('Date')
   cols = data.columns
-  change = pd.DataFrame({'Date':data.index})
   for col in cols:
       list1 = data[col].tolist()
       list2 = data[col].tolist()
