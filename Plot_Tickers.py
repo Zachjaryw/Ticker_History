@@ -22,9 +22,9 @@ data = pdr.get_data_yahoo(tickers, start=start, end=end)['Adj Close']
 if breakdown == 'Day':
   pass
 elif breakdown == 'Week':
-  data = data.iloc[::5,:]
+  data = data.iloc[::5]
 elif breakdown == 'Month':
-  data = data.iloc[::22,:]
+  data = data.iloc[::22]
 
 data = data.iloc[::-1]
 
