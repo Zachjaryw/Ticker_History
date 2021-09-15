@@ -12,10 +12,19 @@ start = st.text_input("Input start date here: (Format YYYY-MM-DD)", '2021-01-01'
 st.write('For list of possible tickers, visit: https://tinyurl.com/NYSETickers')
 tickers = st.text_input("Input tickers here: (Use comma to seperate tickers)",'AAPL') #Allow user to chose ticker symbol
 
+breakdoan = st.selectbox('Breakdown Historical data by:',['Day','Week','Month'])
+
 #Collect Data
 yfinance.pdr_override()
 data = pd.DataFrame()
-data = pdr.get_data_yahoo(tickers, start=start, end=end)['Adj Close']
+if breakdown == 'Day':
+  data = pdr.get_data_yahoo(tickers, start=start, end=end)['Adj Close']
+elif breakdown == 'Week':
+  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = '1w')['Adj Close']
+elif breakdown == 'Month':
+  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = '1m')['Adj Close']
+
+
 data = data.iloc[::-1]
 
 #Display Data
