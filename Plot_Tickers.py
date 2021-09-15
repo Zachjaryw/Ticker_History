@@ -27,20 +27,36 @@ elif breakdown == 'Month':
   data = data.iloc[::22]
 data = data.iloc[::-1]
 
-cols = data.columns
-change = pd.DataFrame({'Date':data.index})
-for col in cols:
-    list1 = data[col].tolist()
-    list2 = data[col].tolist()
+data = data.reset_index()
+if data.shape[1] == 2:
+    change = pd.DataFrame({'Date':data.index})
+    list1 = data['Adj Close'].tolist()
+    list2 = data['Adj Close'].tolist()
     list2.remove(list2[0]);list2.append(list2[-1])
     difference = []
     zip_object = zip(list1, list2)
     for list1_i, list2_i in zip_object:
         difference.append((list1_i-list2_i)/list1_i*100)
-    dif = pd.DataFrame({'Difference':difference})
+    dif = pd.DataFrame({'Adj Close':difference})
     change = pd.concat([change,dif],axis = 1)
-change = change.set_index('Date')
-change.columns = data.columns
+    change = change.set_index('Date')
+    
+elif data.shape[1] > 2:
+    data = data.set_index('Date')
+    cols = data.columns
+    change = pd.DataFrame({'Date':data.index})
+    for col in cols:
+        list1 = data[col].tolist()
+        list2 = data[col].tolist()
+        list2.remove(list2[0]);list2.append(list2[-1])
+        difference = []
+        zip_object = zip(list1, list2)
+        for list1_i, list2_i in zip_object:
+            difference.append((list1_i-list2_i)/list1_i*100)
+        dif = pd.DataFrame({'Difference':difference})
+        change = pd.concat([change,dif],axis = 1)
+    change = change.set_index('Date')
+    change.columns = data.columns
 
 #Display Data
 st.header(f'Adjusted Closing Values per {breakdown}')
