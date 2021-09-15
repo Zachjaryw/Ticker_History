@@ -68,8 +68,9 @@ if ct == True:
   change = change.set_index('Date')
   change.columns = data.columns
   st.write(change)
-  for i in range(change.shape[1]):
-    st.line_chart(change.iloc[:,i])
+  st.line_chart(change)
+  #for i in range(change.shape[1]):
+    #st.line_chart(change.iloc[:,i])
 elif ct == False:
   st.write(change)
   st.line_chart(change)
