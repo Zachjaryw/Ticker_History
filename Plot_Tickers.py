@@ -48,7 +48,7 @@ if data.shape[1] == 2:
   change = change.set_index('Date')
     
 elif data.shape[1] > 2:
-  ct = True
+  ct = False
   data = data.set_index('Date')
   cols = data.columns
   for col in cols:
@@ -70,6 +70,6 @@ if ct == True:
   st.write(change)
   for i in range(change.shape[1]):
     st.bar_chart(change.iloc[:,i])
-else:
+elif ct == False:
   st.write(change)
   st.bar_chart(change)
