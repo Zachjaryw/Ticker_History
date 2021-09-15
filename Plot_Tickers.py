@@ -27,12 +27,7 @@ elif breakdown == 'Month':
   data = data.iloc[::22]
 data = data.iloc[::-1]
 
-#Display Data
-st.header(f'Adjusted Closing Values per {breakdown}')
-st.write(data)
-st.line_chart(data)
-
-cols = ['Adj Close']
+cols = data.columns
 change = pd.DataFrame({'Date':data.index})
 for col in cols:
     list1 = data[col].tolist()
@@ -46,6 +41,11 @@ for col in cols:
     change = pd.concat([change,dif],axis = 1)
 change = change.set_index('Date')
 change.columns = data.columns
+
+#Display Data
+st.header(f'Adjusted Closing Values per {breakdown}')
+st.write(data)
+st.line_chart(data)
 
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
