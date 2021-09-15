@@ -29,7 +29,7 @@ data = data.iloc[::-1]
 
 #Display Data
 st.header(f'Adjusted Closing Values per {breakdown}')
-seperate1 = st.checkbox('Seperate Graphs?')
+seperate1 = st.checkbox('Seperate Graphs? (Adj Close)')
 st.write(data)
 if seperate1 == True:
   for i in range(data.shape[1]):
@@ -70,7 +70,7 @@ elif data.shape[1] > 2:
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
 if ct == True:
-  seperate = st.checkbox('Seperate Graphs?')
+  seperate = st.checkbox('Seperate Graphs? (Difference)')
   change = change.set_index('Date')
   change.columns = data.columns
   st.write(change)
