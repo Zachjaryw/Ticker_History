@@ -66,7 +66,7 @@ elif data.shape[1] > 2:
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
 if ct == True:
-  for i in data.shape[1]:
+  for i in range(data.shape[1]):
     st.bar_chart(change[i])
 else:
   st.bar_chart(change)
