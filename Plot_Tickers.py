@@ -29,8 +29,13 @@ data = data.iloc[::-1]
 
 #Display Data
 st.header(f'Adjusted Closing Values per {breakdown}')
+seperate1 = st.checkbox('Seperate Graphs?')
 st.write(data)
-st.line_chart(data)
+if seperate1 == True:
+  for i in range(data.shape[1]):
+    st.line_chart(data.iloc[:,i])
+elif seperate1 == False:
+  st.line_chart(data)
 
 change = pd.DataFrame({'Date':data.index})
 data = data.reset_index()
