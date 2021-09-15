@@ -17,13 +17,14 @@ breakdown = st.selectbox('Breakdown Historical data by:',['Day','Week','Month'])
 #Collect Data
 yfinance.pdr_override()
 data = pd.DataFrame()
-if breakdown == 'Day':
-  data = pdr.get_data_yahoo(tickers, start=start, end=end)['Adj Close']
-elif breakdown == 'Week':
-  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = 'w')['Adj Close']
-elif breakdown == 'Month':
-  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = 'm')['Adj Close']
+data = pdr.get_data_yahoo(tickers, start=start, end=end)['Adj Close']
 
+if breakdown == 'Day':
+  pass
+elif breakdown == 'Week':
+  data = data.iloc[::5,:]
+elif breakdown == 'Month':
+  data = data.iloc[::22,:]
 
 data = data.iloc[::-1]
 
