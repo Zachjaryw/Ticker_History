@@ -20,9 +20,9 @@ data = pd.DataFrame()
 if breakdown == 'Day':
   data = pdr.get_data_yahoo(tickers, start=start, end=end)['Adj Close']
 elif breakdown == 'Week':
-  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = '1w')['Adj Close']
+  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = 'w')['Adj Close']
 elif breakdown == 'Month':
-  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = '1m')['Adj Close']
+  data = pdr.get_data_yahoo(tickers, start=start, end=end,interval = 'm')['Adj Close']
 
 
 data = data.iloc[::-1]
