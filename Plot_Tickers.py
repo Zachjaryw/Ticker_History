@@ -32,9 +32,20 @@ st.header(f'Adjusted Closing Values per {breakdown}')
 st.write(data)
 st.line_chart(data)
 
-accel_data = pd.DataFrame()
-
+change = pd.DataFrame({'Date':data.index})
+for col in data.columns:
+    list1 = data[col].tolist()
+    list2 = data[col].tolist()
+    list2.remove(list2[0]);list2.append(list2[-1])
+    difference = []
+    zip_object = zip(list1, list2)
+    for list1_i, list2_i in zip_object:
+        difference.append((list1_i-list2_i)/list1_i*100)
+    dif = pd.DataFrame({'Difference':difference})
+    change = pd.concat([change,dif],axis = 1)
+change = change.set_index('Date')
+change.columns = data.columns
 
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
-st.line_chart(accel_data,min = -100,max = 100)
+st.bar_chart(change)
