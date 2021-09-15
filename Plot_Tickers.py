@@ -32,7 +32,7 @@ st.header(f'Adjusted Closing Values per {breakdown}')
 st.write(data)
 st.line_chart(data)
 
-st.write(data.columns)
+cols = ['Adj Close']
 change = pd.DataFrame({'Date':data.index})
 for col in cols:
     list1 = data[col].tolist()
