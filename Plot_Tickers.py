@@ -60,7 +60,7 @@ elif data.shape[1] > 2:
             difference.append((list1_i-list2_i)/list1_i*100)
         dif = pd.DataFrame({'Difference':difference})
         change = pd.concat([change,dif],axis = 1)
-    data = data.set_index('Date')
+    #data = data.set_index('Date')
     #change.columns = data.columns
 
 #Display Accelaration Graph
