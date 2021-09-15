@@ -34,6 +34,7 @@ st.line_chart(data)
 
 data = data.reset_index()
 if data.shape[1] == 2:
+  ct = False
     change = pd.DataFrame({'Date':data.index})
     list1 = data['Adj Close'].tolist()
     list2 = data['Adj Close'].tolist()
@@ -47,6 +48,7 @@ if data.shape[1] == 2:
     change = change.set_index('Date')
     
 elif data.shape[1] > 2:
+  ct = True
     data = data.set_index('Date')
     cols = data.columns
     change = pd.DataFrame({'Date':data.index})
@@ -65,4 +67,8 @@ elif data.shape[1] > 2:
 
 #Display Accelaration Graph
 st.header(f'Acceleration Graph of Closing Values per {breakdown}')
-st.bar_chart(change)
+if ct = True:
+  for i in data.shape[1]:
+    st.bar_chart(change[i])
+else:
+  st.bar_chart(change)
